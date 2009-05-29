@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+
+<installation version="1.0">
+
+<info>
+	<appname>PopGavaMail</appname>
+	<appversion>0.1.5</appversion>
+	<url>http://gavamail.sourceforge.net/phpwiki/</url>
+	<authors>
+		<author name="Rishabh Manocha" email="rmanocha@users.sourceforge.net" />
+	</authors>
+	<javaversion>1.4</javaversion>
+</info>
+
+<variables>
+	<variable name="ver" value="0.1.5" />
+	<variable name="releasedate" value="26th Oct. 2004" />
+</variables>
+
+<guiprefs height="600" width="800" resizable="yes">
+	<laf name="looks">
+		<os family="unix" />
+	</laf>
+	<laf name="looks">
+		<os family="windows" />
+	</laf>
+</guiprefs>
+
+<locale>
+	<langpack iso3="eng"/>
+	<langpack iso3="fra"/>
+	<langpack iso3="spa"/>
+	<langpack iso3="ned"/>
+	<langpack iso3="rus"/>
+	<langpack iso3="jpn"/>
+</locale>
+
+<resources>
+	<res id="LicencePanel.licence" src="COPYING" />
+</resources>
+
+<panels>
+	<panel classname="HelloPanel" />
+	<panel classname="LicencePanel" />
+	<panel classname="TargetPanel" />
+	<panel classname="PacksPanel" />
+	<panel classname="InstallPanel" />
+	<panel classname="FinishPanel" />
+</panels>
+<packs>
+	<pack name="Core" required="yes" preselected="yes">
+		<description>The PopGavaMail Binary file.</description>
+		<file targetdir="$INSTALL_PATH" src="PopGavamail-0.1.5.jar" />
+		<file targetdir="$INSTALL_PATH" src="lib" />
+		<file targetdir="$INSTALL_PATH" src="COPYING" />
+		<file targetdir="$INSTALL_PATH" src="README" />
+		<file targetdir="$INSTALL_PATH" src="popgavamail" />
+		<file targetdir="$INSTALL_PATH" src="logging.properties" />
+	</pack>
+	<pack name="Sources" required="no" preselected="no">
+		<description>The PopGavaMail source code files. These are not required to run PopGavaMail.</description>
+		<file targetdir="$INSTALL_PATH" src="src" />
+	</pack>
+</packs>
+
+</installation>

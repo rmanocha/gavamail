@@ -1,0 +1,42 @@
+#configuration file for MdirGavaMail
+
+[DEFAULT]
+#Your gmail account username
+username=
+
+#Your gmail account password. You might want to make sure that this file is not world readable.
+password=
+
+#label whose files you want to download. Inbox and ALL are labels too.
+#This can be a comma saperated list of all the labels you want to get.
+label=
+
+#the base maildir directory. This directory should contain atleast three subdirectories - new, cur and tmp.
+#If the label parsed is anything other than that inbox, a new subsirectory with that labels name is created inside the base maildir directory.
+#Hence you can view different labels as different folders in your mail client.
+baseMdir=
+
+#switch this to true if you want to check for unread messages only.
+#You might want to change this to true once you have run MdirGavaMail for the first time.
+#this way every subsequent time, you will only get the new messages.
+#This should also be true if the label you are downloading is very big. Gmail will probably
+#lock you out if it witnesses too much traffic from your account(which will be the case if you downlaod all the mails from a big label).
+#Use this flag at your own risk
+unread-only=
+
+#Assign this to true if you want to use a mysql database to store information about the various messages downloaded(instead of using files).
+use-mysql=
+
+#If use-mysql is set to true, then you need to fill the following out:
+
+#Your mysql-username:
+mysql-username=
+
+#your mysql password:
+mysql-password=
+
+#the database name to use where all the tables are located:
+mysql-database=
+
+#the mysql-host to connect to:
+mysql-host=

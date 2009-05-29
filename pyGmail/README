@@ -1,0 +1,11 @@
+Welcome to PyMdirGavaMail.
+
+This is a utliity which allows you to download all your gmail mail into maildir format. This way you can use gmails filtering system and read all your mails in your local mail client as folders. You can also pass all this mail to a maildir compatible imap/pop3 server.
+
+Please read the INSTALL file to read how to run this program.
+
+Acknowledgements:
+xfollower(follower@myrealbox.com) for the libgmail(http://libgmail.sf.net) library which is used to connect to and download mail from a gmail account.
+
+License:
+Both PyMdirGavaMail and libgmail are released under the GPL v2.0. Please read COPYING for more details.

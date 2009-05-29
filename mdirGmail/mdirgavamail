@@ -1,0 +1,2 @@
+#!/bin/bash
+java -Djava.util.logging.config.file=logging.properties -jar MdirGavaMail-0.2.jar $@ 

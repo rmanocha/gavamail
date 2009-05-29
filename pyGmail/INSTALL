@@ -1,0 +1,17 @@
+PyMdirGavaMail can be run by passing arguments at the command line or by using a configuration file.
+To check the command line options, run mdirgmail.py --help. This will print out a listing of all available options.
+
+The default configuration file used is ./.mdirgmailrc. There is a sample file provided in the extracted directory. Carefully read the instructions above each option and fill in the required information.
+
+There is another file used by PyMdirGavaMail. Again, the default for this file is ./.mdirgmailwritten. This file is used to keep track of which messages have been downloaded so that the same messages are not downloaded again.
+You do not need to eit this file EVER. please let it be like it is.
+Also, once PyMdirGavaMail has downloaded a message, it will never download it again. Hence if you deleted the message through your mail reader, PyMdirGavaMail will not register this and reduce the counter for that thread. Hence you might lose some messages when a new message is added to that thread. Hence it is recommended that you do not delete messages.
+
+You can specify altrenate files using the --conf and --written option. Again, please run
+	./mdirgmail.py --help to get a syntax listing.
+
+Setting the --unread-only option to true is highly recommended since this significantly reduces the no. of checks PyMdirGavaMail makes to download mail.
+
+Hope you like this program.
+
+(c) 2004-2005 Rishabh Manocha

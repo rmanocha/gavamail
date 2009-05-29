@@ -1,0 +1,43 @@
+<!-- Ant build file. http://ant.apache.org -->
+<project name="gavamail" default="makeJar" basedir=".">
+	<description>
+		BuildFile for MdirGmail
+	</description>
+	<property name="src" value="src"/>
+	<property name="build" value="build"/>
+	<property name="lib" value="lib"/>
+	<property name="ver" value="0.2.1"/>
+
+	<path id="project.class.path">
+                <fileset dir="./lib">
+                        <include name="*.jar"/>
+                </fileset>
+        </path>
+	
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" depends="init" description="Compile the source code">
+		<javac srcdir="${src}/" destdir="${build}" debug="on">
+			<classpath refid="project.class.path"/>
+		</javac>
+	</target>
+
+	<target name="makeJar" depends="compile" description="makes the PopGavaMailNotifier-${ver}.jar file"> 
+		<jar destfile="MdirGavaMail-${ver}.jar" basedir="${build}">
+			<manifest>
+				<attribute name="Main-class" value="org.makemdir.MakeMdir" />
+				<attribute name="Class-Path" value="${lib}/g4j-lib.jar" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean" description="clean up" >
+		<!-- Delete the ${build} and ${dist} directory trees -->
+	        <delete dir="${build}"/>
+	</target>
+</project>

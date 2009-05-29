@@ -1,0 +1,36 @@
+<!-- Ant build file. http://ant.apache.org -->
+<project name="gavamail" default="makeJar" basedir=".">
+	<description>
+		BuildFile for PopGavaMailNotifier
+	</description>
+<property name="src" location="src"/>
+<property name="build" location="build"/>
+<property name="lib" value="lib"/>
+<property name="ver" value="0.1.2"/>
+
+<target name="init">
+	<!-- Create the time stamp -->
+	<tstamp/>
+	<!-- Create the build directory structure used by compile -->
+	<mkdir dir="${build}"/>
+</target>
+
+<target name="compile" depends="init" description="Compile the source code">
+	<javac srcdir="${src}/org/popserver/" destdir="${build}" classpath="${lib}/edu.jar:${lib}/g4j-lib.jar"/>
+</target>
+
+<target name="makeJar" depends="compile" description="makes the PopGavaMailNotifier-${ver}.jar file"> 
+	<jar destfile="PopGavaMailNotifier-${ver}.jar" basedir="${build}">
+		<manifest>
+			<attribute name="Main-class" value="org.popserver.PopGmail"/>
+			<attribute name="Class-Path" value="${lib}/edu.jar ${lib}/g4j-lib.jar"/>
+		</manifest>
+	</jar>
+</target>
+
+<target name="clean"
+        description="clean up" >
+	    <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}"/>
+</target>
+</project>

@@ -1,0 +1,27 @@
+Hello and Welcome to gavamail.
+This project is intended to be a POP3/IMAP server for the famous GMAIL service.
+For now, only the POP3 server has been implemented. An IMAP server is planned for the future. 
+To run this program, you will need to have a JVM installed. You can find the sun version of the JVM at http://java.sun.com. I have not tried this program with any other JVM but if you do and it works fine, please visit the project page(http://gavamail.sf.net/phpwiki/) and e-mail me letting me know which VM it worked with. I will then put up this information on the project website so other can read it too.
+To run this program, you will need to execute this command from the extracted directory:
+java -jar PopGavamail-{version}.jar
+
+*UNIX users can use the popgavamail script provided.
+
+replacing version with the version of gavamail you downloaded.
+Currently passing only one option is supported by gavamail which is to get unread messages only. I would STRONGLY recommend users with large e-mail account to pass this option to gavamail as GMAIL temporarily shuts down your e-mail account if they see too much activity from one user(which will be the case if you try to download all your e-mail and you have a particularly large account). I tried it with my 20 MB account and gmail shut me down. Hence I will say this here: USE THIS PROGRAM AT YOUR OWN RISK.
+To execute with the unread-only option, issue this command in the extracted directory:
+java -jar PopGavamail-{version}.jar --unread-only
+
+You can also start gavamail as a init.d service so that the program starts everytime you start your machine and stops when you turn it off(only for nix machines). Checkout the project webpage for more info.
+To connect to the popserver, open an e-mail client and give the server address as localhost. The port on which the connection is opened is 11112 and not the default port on which most POP3 servers listen at(143..I think). Hence you will need to change the port on which you client queries the server. Setup the rest as normal. You do not need to do anything extra other than these two steps.
+
+Also, since POP3 servers do not provide a list of available folders, this program downloads e-mail from the "ALL" box in your gmail account. There are many programs which can be used to filter your e-mail like gmail does into labels though. You can try procmail or Popfile. Again, you can read more on the gavamail project page(http://gavamail.sf.net/phpwiki/).
+I have tried gavamail only on Linux(Debian) using JVM 1.5 and have tested it on mutt and thunderbird. Please let me know if you manage to run it on other mail clients.
+Hope you enjoy using gavamail and please do let me know if you find something unusual, interesting.
+
+For a full listing of available options issue the command:
+java -jar PopGavaMail-{version}.jar --help
+
+Licensing Information:
+This software is released under the terms and conditions set by the GPL v.2. See COPYING for more information.
+(c) Rishabh Manocha 2004-2005

@@ -1,0 +1,8 @@
+1)The code now uses generics(introduced in java 1.5). This means that you will
+need java 1.5 to compile gavamail. While I realise that this might be a pain
+in the rear for some, these people should really start using 1.5...:).
+2)There is a new package(org.util) which handle the various utilities
+associated with PopGavaMail. Currently it contains a class AnalyseOpts which
+analyses the command line options parsed and acts on them.
+3)A couple of options have been added to the program. you can parse the --help
+option to see a listing.

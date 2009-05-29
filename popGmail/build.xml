@@ -1,0 +1,52 @@
+<!-- Ant build file. http://ant.apache.org -->
+<project name="gavamail" default="makeJar" basedir=".">
+	<description>
+		BuildFile for gavamail
+	</description>
+	<property name="src" value="src"/>
+	<property name="build" value="build"/>
+	<property name="lib" value="lib"/>
+	<property name="ver" value="0.1.5"/>
+	<property environment="env"/>
+	
+	<path id="project.class.path">
+		<fileset dir="./lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by
+		compile -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" depends="init" description="Compile the source code">
+		<javac srcdir="${src}/" destdir="${build}" debug="on">
+			<classpath refid="project.class.path"/>
+		</javac>
+	</target>
+
+	<target name="makeJar" depends="compile" description="makes the PopGavamail.jar file">
+		<jar destfile="PopGavamail-${ver}.jar" basedir="${build}">
+			<manifest>
+				<attribute name="Main-class" value="org.popserver.PopGmailStart"/>
+				<attribute name="Class-Path" value="${lib}/edu.jar ${lib}/g4j-lib.jar"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<!-- To use this target, IZPACK_HOME needs to be defined as a system variable and should be pointing to the izpack base directory.-->
+	<target name="izpack" description="Make a Graphical installer using the IzPack installer" depends="makeJar">
+		<echo message="IZPACK Home is ${env.IZPACK_HOME}"/>
+		<taskdef name="izpack" classpath="${env.IZPACK_HOME}/lib/compiler.jar" classname="com.izforge.izpack.ant.IzPackTask"/>
+		<izpack input="install.xml" output="PopGavamail-installer-${ver}.jar" installerType="standard" basedir="." izPackDir="${env.IZPACK_HOME}" />
+	</target>
+
+	<target name="clean" description="clean up" >
+		<!-- Delete the ${build} directory -->
+		<delete dir="${build}"/>
+	</target>
+</project>
